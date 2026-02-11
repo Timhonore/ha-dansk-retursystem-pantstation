@@ -15,10 +15,14 @@
         "description": "Select a pantstation from the list.",
         "data": {
           "station": "Pantstation"
+        "data": {
+          "name": "Name",
+          "url": "URL"
         }
       }
     },
     "error": {
+      "invalid_url": "URL must start with https://danskretursystem.dk/pantstation/",
       "duplicate_station": "This station has already been added"
     }
   }

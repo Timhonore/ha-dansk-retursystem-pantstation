@@ -38,6 +38,9 @@ Flowet er menu-baseret:
 
 1. Vælg **Tilføj pantstation**.
 2. Vælg en pantstation i dropdown-listen.
+2. Indtast:
+   - `name` (frit navn)
+   - `url` (skal starte med `https://danskretursystem.dk/pantstation/`)
 3. Gentag for flere stationer.
 4. Vælg **Færdig** for at oprette integrationen.
 
