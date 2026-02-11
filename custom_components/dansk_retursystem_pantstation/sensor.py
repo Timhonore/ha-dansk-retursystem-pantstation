@@ -18,6 +18,20 @@ from .const import CONF_NAME, CONF_STATIONS, CONF_URL, DOMAIN
 from .coordinator import PantstationCoordinator
 
 
+def _get_configured_stations(entry: ConfigEntry) -> list[Mapping[str, str]]:
+    """Return configured stations and support legacy single-station data."""
+    stations: list[Mapping[str, str]] = entry.data.get(CONF_STATIONS, [])
+    if stations:
+        return stations
+
+    legacy_name = entry.data.get(CONF_NAME)
+    legacy_url = entry.data.get(CONF_URL)
+    if isinstance(legacy_name, str) and isinstance(legacy_url, str):
+        return [{CONF_NAME: legacy_name, CONF_URL: legacy_url}]
+
+    return []
+
+
 async def async_setup_entry(
     hass: HomeAssistant,
     entry: ConfigEntry,
@@ -25,7 +39,7 @@ async def async_setup_entry(
 ) -> None:
     """Set up pantstation sensors from config entry."""
     session = async_get_clientsession(hass)
-    stations: list[Mapping[str, str]] = entry.data.get(CONF_STATIONS, [])
+    stations = _get_configured_stations(entry)
 
     entities: list[PantstationDriftSensor] = []
     coordinators: list[PantstationCoordinator] = []
