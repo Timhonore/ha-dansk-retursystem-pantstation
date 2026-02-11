@@ -46,6 +46,3 @@ STATION_OPTIONS: dict[str, dict[str, str]] = {
         CONF_URL: "https://danskretursystem.dk/pantstation/viborg/",
     },
 }
-
-DEFAULT_SCAN_INTERVAL = timedelta(minutes=5)
-PLATFORMS = ["sensor"]
