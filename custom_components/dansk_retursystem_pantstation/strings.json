@@ -1,0 +1,25 @@
+{
+  "config": {
+    "flow_title": "Dansk Retursystem Pantstation",
+    "step": {
+      "user": {
+        "title": "Add pantstations",
+        "description": "Stations already added:\n{stations}",
+        "menu_options": {
+          "add_station": "Add pantstation",
+          "finish": "Finish"
+        }
+      },
+      "add_station": {
+        "title": "Add pantstation",
+        "description": "Select a pantstation from the list.",
+        "data": {
+          "station": "Pantstation"
+        }
+      }
+    },
+    "error": {
+      "duplicate_station": "This station has already been added"
+    }
+  }
+}
