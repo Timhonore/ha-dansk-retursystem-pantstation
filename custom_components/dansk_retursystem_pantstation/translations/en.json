@@ -12,6 +12,9 @@
       },
       "add_station": {
         "title": "Add pantstation",
+        "description": "Select a pantstation from the list.",
+        "data": {
+          "station": "Pantstation"
         "data": {
           "name": "Name",
           "url": "URL"

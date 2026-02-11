@@ -37,6 +37,7 @@ Hvis du bruger HACS og repoet er tilføjet som custom repository:
 Flowet er menu-baseret:
 
 1. Vælg **Tilføj pantstation**.
+2. Vælg en pantstation i dropdown-listen.
 2. Indtast:
    - `name` (frit navn)
    - `url` (skal starte med `https://danskretursystem.dk/pantstation/`)

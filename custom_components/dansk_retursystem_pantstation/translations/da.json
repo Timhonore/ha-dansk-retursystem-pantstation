@@ -12,6 +12,9 @@
       },
       "add_station": {
         "title": "Tilføj pantstation",
+        "description": "Vælg en pantstation fra listen.",
+        "data": {
+          "station": "Pantstation"
         "data": {
           "name": "Navn",
           "url": "URL"
