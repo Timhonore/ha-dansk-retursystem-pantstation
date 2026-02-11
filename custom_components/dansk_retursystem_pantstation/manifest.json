@@ -1,0 +1,12 @@
+{
+  "domain": "dansk_retursystem_pantstation",
+  "name": "Dansk Retursystem – Pantstation driftinfo",
+  "version": "0.5.0",
+  "documentation": "https://github.com/example/ha-dansk-retursystem-pantstation",
+  "issue_tracker": "https://github.com/example/ha-dansk-retursystem-pantstation/issues",
+  "requirements": [
+    "beautifulsoup4==4.12.3"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Dansk Retursystem Pantstation",
+  "country": [
+    "DK"
+  ],
+  "domains": [
+    "sensor"
+  ],
+  "homeassistant": "2024.6.0"
+}
