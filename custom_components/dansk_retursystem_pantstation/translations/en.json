@@ -5,6 +5,7 @@
       "user": {
         "title": "Add pantstations",
         "description": "Stations already added: {stations}",
+        "description": "Stations already added:\n{stations}",
         "menu_options": {
           "add_station": "Add pantstation",
           "finish": "Finish"
@@ -15,10 +16,14 @@
         "description": "Select a pantstation from the list.",
         "data": {
           "station": "Pantstation"
+        "data": {
+          "name": "Name",
+          "url": "URL"
         }
       }
     },
     "error": {
+      "invalid_url": "URL must start with https://danskretursystem.dk/pantstation/",
       "duplicate_station": "This station has already been added"
     }
   }
