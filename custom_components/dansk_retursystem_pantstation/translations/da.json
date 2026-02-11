@@ -1,0 +1,26 @@
+{
+  "config": {
+    "flow_title": "Dansk Retursystem Pantstation",
+    "step": {
+      "user": {
+        "title": "Tilføj pantstationer",
+        "description": "Allerede tilføjede stationer:\n{stations}",
+        "menu_options": {
+          "add_station": "Tilføj pantstation",
+          "finish": "Færdig"
+        }
+      },
+      "add_station": {
+        "title": "Tilføj pantstation",
+        "data": {
+          "name": "Navn",
+          "url": "URL"
+        }
+      }
+    },
+    "error": {
+      "invalid_url": "URL skal starte med https://danskretursystem.dk/pantstation/",
+      "duplicate_station": "Denne station er allerede tilføjet"
+    }
+  }
+}
