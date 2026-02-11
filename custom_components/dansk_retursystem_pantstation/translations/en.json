@@ -4,6 +4,7 @@
     "step": {
       "user": {
         "title": "Add pantstations",
+        "description": "Stations already added: {stations}",
         "description": "Stations already added:\n{stations}",
         "menu_options": {
           "add_station": "Add pantstation",

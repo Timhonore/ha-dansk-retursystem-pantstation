@@ -4,6 +4,7 @@
     "step": {
       "user": {
         "title": "Tilføj pantstationer",
+        "description": "Allerede tilføjede stationer: {stations}",
         "description": "Allerede tilføjede stationer:\n{stations}",
         "menu_options": {
           "add_station": "Tilføj pantstation",
