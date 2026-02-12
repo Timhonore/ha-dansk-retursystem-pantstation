@@ -1,0 +1,11 @@
+refresh:
+  name: Opdater pantstationer
+  description: Tving en opdatering af pantstation-data med det samme.
+  fields:
+    url:
+      name: Station URL
+      description: Begræns opdatering til én station med præcis URL.
+      example: https://danskretursystem.dk/pantstation/randers/
+      required: false
+      selector:
+        text:

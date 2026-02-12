@@ -3,6 +3,7 @@
 from datetime import timedelta
 
 DOMAIN = "dansk_retursystem_pantstation"
+SERVICE_REFRESH = "refresh"
 CONF_STATIONS = "stations"
 CONF_NAME = "name"
 CONF_URL = "url"
@@ -46,6 +47,3 @@ STATION_OPTIONS: dict[str, dict[str, str]] = {
         CONF_URL: "https://danskretursystem.dk/pantstation/viborg/",
     },
 }
-
-DEFAULT_SCAN_INTERVAL = timedelta(minutes=5)
-PLATFORMS = ["sensor"]
