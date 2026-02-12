@@ -102,6 +102,7 @@ class PantstationDriftSensor(PantstationBaseSensor):
         super().__init__(coordinator, station_name, station_url)
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_drift"
         self._attr_name = f"Pantstation {station_name} drift"
+        self._attr_icon = "mdi:recycle"
 
     @property
     def native_value(self) -> str | None:
@@ -116,6 +117,7 @@ class PantstationMessageSensor(PantstationBaseSensor):
         super().__init__(coordinator, station_name, station_url)
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_message"
         self._attr_name = f"Pantstation {station_name} besked"
+        self._attr_icon = "mdi:message-text"
 
     @property
     def native_value(self) -> str | None:
@@ -130,6 +132,7 @@ class PantstationAddressSensor(PantstationBaseSensor):
         super().__init__(coordinator, station_name, station_url)
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_address"
         self._attr_name = f"Pantstation {station_name} adresse"
+        self._attr_icon = "mdi:map-marker"
 
     @property
     def native_value(self) -> str | None:
@@ -144,6 +147,7 @@ class PantstationOpeningHoursSensor(PantstationBaseSensor):
         super().__init__(coordinator, station_name, station_url)
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_opening_hours"
         self._attr_name = f"Pantstation {station_name} åbningstider"
+        self._attr_icon = "mdi:clock-outline"
 
     @property
     def native_value(self) -> str | None:

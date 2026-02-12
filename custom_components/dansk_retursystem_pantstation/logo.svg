@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Dansk Retursystem Pantstation logo</title>
+  <desc id="desc">Simple circular recycle mark with a bottle in the center and Danish red accent.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d70f2f"/>
+      <stop offset="100%" stop-color="#ef3340"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+
+  <circle cx="128" cy="128" r="80" fill="none" stroke="#ffffff" stroke-width="14" opacity="0.95"/>
+
+  <path d="M182 91l18 8-10 17" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74 164l-18-8 10-17" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M73 108c12-22 35-36 61-36" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M184 148c-12 22-35 36-61 36" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+
+  <path d="M123 74h10a8 8 0 0 1 8 8v10h6a8 8 0 0 1 8 8v64a12 12 0 0 1-12 12h-30a12 12 0 0 1-12-12v-64a8 8 0 0 1 8-8h6V82a8 8 0 0 1 8-8z" fill="#ffffff"/>
+  <rect x="112" y="106" width="32" height="10" rx="5" fill="#ef3340"/>
+</svg>
