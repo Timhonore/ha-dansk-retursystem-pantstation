@@ -9,6 +9,13 @@ Denne integration henter **driftinformation** fra Dansk Retursystems pantstation
 - `adresse`
 - `åbningstider`
 
+Denne integration henter **driftinformation** fra Dansk Retursystems pantstation-sider (fx Randers, Odense) og opretter flere sensorer pr. station i Home Assistant:
+
+- `drift` (Åben/Lukket/Midlertidigt lukket)
+- `besked`
+- `adresse`
+- `åbningstider`
+
 Alle sensorer indeholder også attributter med `url`, `source` og `last_update`.
 
 ## Installation (manuel)
