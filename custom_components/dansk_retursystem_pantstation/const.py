@@ -3,6 +3,7 @@
 from datetime import timedelta
 
 DOMAIN = "dansk_retursystem_pantstation"
+SERVICE_REFRESH = "refresh"
 CONF_STATIONS = "stations"
 CONF_NAME = "name"
 CONF_URL = "url"

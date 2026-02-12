@@ -48,6 +48,7 @@ class DanskRetursystemPantstationConfigFlow(config_entries.ConfigFlow, domain=DO
                 self._stations.append(dict(station))
                 return await self.async_step_user()
 
+        station_select = {key: data[CONF_NAME] for key, data in STATION_OPTIONS.items()}
         station_select = {
             key: f"{data[CONF_NAME]} ({data[CONF_URL]})" for key, data in STATION_OPTIONS.items()
         }
