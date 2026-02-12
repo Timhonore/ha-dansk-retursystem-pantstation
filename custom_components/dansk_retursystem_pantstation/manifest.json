@@ -2,7 +2,6 @@
   "domain": "dansk_retursystem_pantstation",
   "name": "Dansk Retursystem – Pantstation driftinfo",
   "version": "0.5.0",
-  "version": "0.1.0",
   "documentation": "https://github.com/example/ha-dansk-retursystem-pantstation",
   "issue_tracker": "https://github.com/example/ha-dansk-retursystem-pantstation/issues",
   "requirements": [

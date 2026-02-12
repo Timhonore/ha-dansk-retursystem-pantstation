@@ -1,21 +1,15 @@
 # Dansk Retursystem Pantstation (Home Assistant custom integration)
 
-Denne integration henter **driftinformation** fra Dansk Retursystems pantstation-sider (fx Randers, Odense) og opretter en sensor pr. station i Home Assistant.
+![Dansk Retursystem Pantstation logo](custom_components/dansk_retursystem_pantstation/logo.svg)
 
-Sensorens state bliver typisk:
+Denne integration henter **driftinformation** fra Dansk Retursystems pantstation-sider (fx Randers, Odense) og opretter flere sensorer pr. station i Home Assistant:
 
-- `Åben`
-- `Lukket`
-- `Midlertidigt lukket`
+- `drift` (Åben/Lukket/Midlertidigt lukket)
+- `besked`
+- `adresse`
+- `åbningstider`
 
-Derudover sættes attributes:
-
-- `message`
-- `address`
-- `opening_hours`
-- `url`
-- `source`
-- `last_update`
+Alle sensorer indeholder også attributter med `url`, `source` og `last_update`.
 
 ## Installation (manuel)
 
@@ -38,11 +32,24 @@ Flowet er menu-baseret:
 
 1. Vælg **Tilføj pantstation**.
 2. Vælg en pantstation i dropdown-listen.
-2. Indtast:
-   - `name` (frit navn)
-   - `url` (skal starte med `https://danskretursystem.dk/pantstation/`)
 3. Gentag for flere stationer.
 4. Vælg **Færdig** for at oprette integrationen.
+
+
+## Service
+
+Integrationen registrerer service-kaldet `dansk_retursystem_pantstation.refresh`:
+
+- Uden data: opdaterer alle konfigurerede stationer med det samme.
+- Med `url`: opdaterer kun den station, der matcher URL'en.
+
+Eksempel:
+
+```yaml
+service: dansk_retursystem_pantstation.refresh
+data:
+  url: https://danskretursystem.dk/pantstation/randers/
+```
 
 ## Eksempel-stationer
 
