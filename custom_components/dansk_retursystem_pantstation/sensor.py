@@ -10,6 +10,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_ATTRIBUTION
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
@@ -93,6 +94,17 @@ class PantstationBaseSensor(CoordinatorEntity[PantstationCoordinator], SensorEnt
             "last_update": last_update.isoformat() if last_update else None,
             ATTR_ATTRIBUTION: "Data fra danskretursystem.dk",
         }
+
+    @property
+    def device_info(self) -> DeviceInfo:
+        """Group all station sensors under one Home Assistant device."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self._station_slug)},
+            name=f"Dansk Retursystem Pantstation {self._station_name}",
+            manufacturer="Dansk Retursystem",
+            model="Pantstation",
+            configuration_url=self._station_url,
+        )
 
 
 class PantstationDriftSensor(PantstationBaseSensor):
