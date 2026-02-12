@@ -1,6 +1,8 @@
 # Dansk Retursystem Pantstation (Home Assistant custom integration)
 
-![Dansk Retursystem Pantstation logo](custom_components/dansk_retursystem_pantstation/logo.svg)
+![Dansk Retursystem Pantstation logo](custom_components/dansk_retursystem_pantstation/logo.png)
+
+Home Assistant-ikonet er nu sat til `custom_components/dansk_retursystem_pantstation/icon.svg`, som genbruger den uploadede `logo.png`.
 
 Denne integration henter **driftinformation** fra Dansk Retursystems pantstation-sider (fx Randers, Odense) og opretter flere sensorer pr. station i Home Assistant:
 
