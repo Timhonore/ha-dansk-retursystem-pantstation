@@ -83,10 +83,7 @@ class PantstationBaseSensor(CoordinatorEntity[PantstationCoordinator], SensorEnt
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return additional station metadata."""
         data = self.coordinator.data
-        last_update = (
-            getattr(self.coordinator, "last_update_success_time", None)
-            or getattr(self.coordinator, "last_update_time", None)
-        )
+        last_update = data.fetched_at if data else None
 
         return {
             "url": data.url if data else self._station_url,
