@@ -78,7 +78,10 @@ class PantstationDriftSensor(CoordinatorEntity[PantstationCoordinator], SensorEn
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return additional station metadata."""
         data = self.coordinator.data
-        last_update = self.coordinator.last_update_success_time
+        last_update = (
+            getattr(self.coordinator, "last_update_success_time", None)
+            or getattr(self.coordinator, "last_update_time", None)
+        )
 
         return {
             "message": data.message if data else None,
