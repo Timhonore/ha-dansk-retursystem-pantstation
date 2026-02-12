@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 from dataclasses import dataclass
+from datetime import datetime
 import logging
 import re
 
@@ -12,6 +13,7 @@ from bs4 import BeautifulSoup
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+from homeassistant.util import dt as dt_util
 
 from .const import DEFAULT_SCAN_INTERVAL
 
@@ -28,6 +30,7 @@ class PantstationData:
     address: str | None
     opening_hours: list[str]
     url: str
+    fetched_at: datetime
 
 
 class PantstationCoordinator(DataUpdateCoordinator[PantstationData]):
@@ -62,10 +65,10 @@ class PantstationCoordinator(DataUpdateCoordinator[PantstationData]):
             _LOGGER.error("Failed fetching station page '%s': %s", self.station_url, err)
             raise UpdateFailed(f"Failed fetching {self.station_url}") from err
 
-        return _parse_station_page(self.station_url, html)
+        return _parse_station_page(self.station_url, html, dt_util.utcnow())
 
 
-def _parse_station_page(station_url: str, html: str) -> PantstationData:
+def _parse_station_page(station_url: str, html: str, fetched_at: datetime) -> PantstationData:
     """Parse relevant drift information from the station HTML."""
     soup = BeautifulSoup(html, "html.parser")
     lines = _normalized_lines(soup.get_text("\n"))
@@ -90,6 +93,7 @@ def _parse_station_page(station_url: str, html: str) -> PantstationData:
         address=address,
         opening_hours=opening_hours,
         url=station_url,
+        fetched_at=fetched_at,
     )
 
 
