@@ -70,3 +70,8 @@ data:
 - Polling hvert 5. minut via `DataUpdateCoordinator`.
 - Parser HTML med BeautifulSoup4 og tolerant tekstudtræk.
 - Hvis driftlinjen ikke kan findes, bliver state `unknown`/`None` og message `None`.
+- Alle sensorer eksponerer `entity_picture` via integrationens statiske sti:
+  - `/dansk_retursystem_pantstation/img/drift.svg`
+  - `/dansk_retursystem_pantstation/img/message.svg`
+  - `/dansk_retursystem_pantstation/img/address.svg`
+  - `/dansk_retursystem_pantstation/img/opening_hours.svg`

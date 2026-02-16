@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Pantstation message</title>
+  <desc id="desc">Blue message icon used as entity picture for message sensor.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a87ff"/>
+      <stop offset="100%" stop-color="#2252b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <rect x="44" y="62" width="168" height="118" rx="22" fill="#ffffff"/>
+  <path d="M58 84l70 54 70-54" fill="none" stroke="#2252b8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M92 196l24-16h24l24 16" fill="#ffffff"/>
+</svg>
