@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Pantstation address</title>
+  <desc id="desc">Purple map pin icon used as entity picture for address sensor.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9a4dff"/>
+      <stop offset="100%" stop-color="#5a2da6"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <path d="M128 44c-35.3 0-64 28.7-64 64 0 46 45.2 94.2 57.1 106a10 10 0 0 0 13.8 0C146.8 202.2 192 154 192 108c0-35.3-28.7-64-64-64z" fill="#ffffff"/>
+  <circle cx="128" cy="108" r="24" fill="#5a2da6"/>
+</svg>

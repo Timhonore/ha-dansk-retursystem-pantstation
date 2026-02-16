@@ -7,7 +7,7 @@ from typing import Any
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import ATTR_ATTRIBUTION
+from homeassistant.const import ATTR_ATTRIBUTION, ATTR_ENTITY_PICTURE
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.device_registry import DeviceInfo
@@ -17,6 +17,13 @@ from homeassistant.util import slugify
 
 from .const import CONF_NAME, CONF_STATIONS, CONF_URL, DOMAIN
 from .coordinator import PantstationCoordinator
+
+ENTITY_PICTURE_BY_SENSOR_TYPE: dict[str, str] = {
+    "drift": f"/{DOMAIN}/img/drift.svg",
+    "message": f"/{DOMAIN}/img/message.svg",
+    "address": f"/{DOMAIN}/img/address.svg",
+    "opening_hours": f"/{DOMAIN}/img/opening_hours.svg",
+}
 
 
 def _get_configured_stations(entry: ConfigEntry) -> list[Mapping[str, str]]:
@@ -71,13 +78,20 @@ class PantstationBaseSensor(CoordinatorEntity[PantstationCoordinator], SensorEnt
 
     _attr_has_entity_name = False
 
-    def __init__(self, coordinator: PantstationCoordinator, station_name: str, station_url: str) -> None:
+    def __init__(
+        self,
+        coordinator: PantstationCoordinator,
+        station_name: str,
+        station_url: str,
+        sensor_type: str,
+    ) -> None:
         """Initialize shared station sensor details."""
         super().__init__(coordinator)
         station_slug = slugify(station_url.rstrip("/").rsplit("/", 1)[-1] or station_name)
         self._station_name = station_name
         self._station_url = station_url
         self._station_slug = station_slug
+        self._entity_picture = ENTITY_PICTURE_BY_SENSOR_TYPE.get(sensor_type)
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
@@ -85,12 +99,15 @@ class PantstationBaseSensor(CoordinatorEntity[PantstationCoordinator], SensorEnt
         data = self.coordinator.data
         last_update = data.fetched_at if data else None
 
-        return {
+        attributes = {
             "url": data.url if data else self._station_url,
             "source": "danskretursystem.dk",
             "last_update": last_update.isoformat() if last_update else None,
             ATTR_ATTRIBUTION: "Data fra danskretursystem.dk",
         }
+        if self._entity_picture:
+            attributes[ATTR_ENTITY_PICTURE] = self._entity_picture
+        return attributes
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -108,7 +125,7 @@ class PantstationDriftSensor(PantstationBaseSensor):
     """Main drift status sensor for a pantstation."""
 
     def __init__(self, coordinator: PantstationCoordinator, station_name: str, station_url: str) -> None:
-        super().__init__(coordinator, station_name, station_url)
+        super().__init__(coordinator, station_name, station_url, "drift")
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_drift"
         self._attr_name = f"Pantstation {station_name} drift"
         self._attr_icon = "mdi:recycle"
@@ -123,7 +140,7 @@ class PantstationMessageSensor(PantstationBaseSensor):
     """Sensor that exposes station status message."""
 
     def __init__(self, coordinator: PantstationCoordinator, station_name: str, station_url: str) -> None:
-        super().__init__(coordinator, station_name, station_url)
+        super().__init__(coordinator, station_name, station_url, "message")
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_message"
         self._attr_name = f"Pantstation {station_name} besked"
         self._attr_icon = "mdi:message-text"
@@ -138,7 +155,7 @@ class PantstationAddressSensor(PantstationBaseSensor):
     """Sensor that exposes station address."""
 
     def __init__(self, coordinator: PantstationCoordinator, station_name: str, station_url: str) -> None:
-        super().__init__(coordinator, station_name, station_url)
+        super().__init__(coordinator, station_name, station_url, "address")
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_address"
         self._attr_name = f"Pantstation {station_name} adresse"
         self._attr_icon = "mdi:map-marker"
@@ -153,7 +170,7 @@ class PantstationOpeningHoursSensor(PantstationBaseSensor):
     """Sensor that exposes station opening hours."""
 
     def __init__(self, coordinator: PantstationCoordinator, station_name: str, station_url: str) -> None:
-        super().__init__(coordinator, station_name, station_url)
+        super().__init__(coordinator, station_name, station_url, "opening_hours")
         self._attr_unique_id = f"dansk_retursystem_pantstation_{self._station_slug}_opening_hours"
         self._attr_name = f"Pantstation {station_name} åbningstider"
         self._attr_icon = "mdi:clock-outline"

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Pantstation drift</title>
+  <desc id="desc">Green status icon used as entity picture for drift sensor.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1aa36f"/>
+      <stop offset="100%" stop-color="#0f6f4b"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <circle cx="128" cy="128" r="82" fill="none" stroke="#ffffff" stroke-width="14" opacity="0.9"/>
+  <path d="M92 132l24 24 48-56" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
