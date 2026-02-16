@@ -2,6 +2,7 @@
   "domain": "dansk_retursystem_pantstation",
   "name": "Dansk Retursystem – Pantstation driftinfo",
   "version": "0.5",
+  "after_dependencies": ["http"],
   "documentation": "https://github.com/Timhonore/ha-dansk-retursystem-pantstation",
   "issue_tracker": "https://github.com/Timhonore/ha-dansk-retursystem-pantstation/issues",
   "requirements": ["beautifulsoup4==4.12.3"],
