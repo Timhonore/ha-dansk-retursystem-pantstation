@@ -1,5 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title id="title">Dansk Retursystem Pantstation icon</title>
-  <desc id="desc">Wrapper icon that reuses the uploaded logo.png asset.</desc>
-  <image href="logo.png" x="0" y="0" width="512" height="512" preserveAspectRatio="xMidYMid meet"/>
+  <desc id="desc">Icon in the same style as the integration entity pictures.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10a7be"/>
+      <stop offset="100%" stop-color="#0f6f4b"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <circle cx="128" cy="128" r="78" fill="none" stroke="#ffffff" stroke-width="14" opacity="0.95"/>
+  <path d="M76 112c10-22 31-38 56-42" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M180 144c-10 22-31 38-56 42" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M178 92l18 8-10 18" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M78 164l-18-8 10-18" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M113 80h20a8 8 0 0 1 8 8v14h3a8 8 0 0 1 8 8v58a12 12 0 0 1-12 12h-34a12 12 0 0 1-12-12v-58a8 8 0 0 1 8-8h3V88a8 8 0 0 1 8-8z" fill="#ffffff"/>
+  <rect x="110" y="116" width="26" height="8" rx="4" fill="#0f6f4b"/>
+  <path d="M154 112h24c8 0 14 6 14 14s-6 14-14 14h-24z" fill="#ffffff"/>
+  <path d="M160 121h16" fill="none" stroke="#0f6f4b" stroke-width="6" stroke-linecap="round"/>
 </svg>
