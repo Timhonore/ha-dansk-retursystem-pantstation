@@ -7,10 +7,10 @@ from typing import Any
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import ATTR_ATTRIBUTION, ATTR_ENTITY_PICTURE
+from homeassistant.const import ATTR_ATTRIBUTION
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from homeassistant.helpers.device_registry import DeviceInfo
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
@@ -91,7 +91,7 @@ class PantstationBaseSensor(CoordinatorEntity[PantstationCoordinator], SensorEnt
         self._station_name = station_name
         self._station_url = station_url
         self._station_slug = station_slug
-        self._entity_picture = ENTITY_PICTURE_BY_SENSOR_TYPE.get(sensor_type)
+        self._attr_entity_picture = ENTITY_PICTURE_BY_SENSOR_TYPE.get(sensor_type)
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
@@ -105,8 +105,6 @@ class PantstationBaseSensor(CoordinatorEntity[PantstationCoordinator], SensorEnt
             "last_update": last_update.isoformat() if last_update else None,
             ATTR_ATTRIBUTION: "Data fra danskretursystem.dk",
         }
-        if self._entity_picture:
-            attributes[ATTR_ENTITY_PICTURE] = self._entity_picture
         return attributes
 
     @property
@@ -114,6 +112,7 @@ class PantstationBaseSensor(CoordinatorEntity[PantstationCoordinator], SensorEnt
         """Group all station sensors under one Home Assistant device."""
         return DeviceInfo(
             identifiers={(DOMAIN, self._station_slug)},
+            entry_type=DeviceEntryType.SERVICE,
             name=f"Dansk Retursystem Pantstation {self._station_name}",
             manufacturer="Dansk Retursystem",
             model="Pantstation",
