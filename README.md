@@ -3,6 +3,7 @@
 ![Dansk Retursystem Pantstation logo](custom_components/dansk_retursystem_pantstation/images/logo.svg)
 
 Home Assistant-ikonet er sat til `custom_components/dansk_retursystem_pantstation/icon.svg` i samme stil som integrationens SVG-billeder.
+For kompatibilitet med både Home Assistant og HACS ligger `logo.png` også i komponent-roden.
 
 Denne integration henter **driftinformation** fra Dansk Retursystems pantstation-sider (fx Randers, Odense) og opretter flere sensorer pr. station i Home Assistant:
 
