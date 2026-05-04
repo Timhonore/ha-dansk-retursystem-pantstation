@@ -7,6 +7,5 @@
   "issue_tracker": "https://github.com/Timhonore/ha-dansk-retursystem-pantstation/issues",
   "requirements": ["beautifulsoup4==4.12.3"],
   "config_flow": true,
-  "iot_class": "cloud_polling",
-  "logo": "logo.png"
+  "iot_class": "cloud_polling"
 }
